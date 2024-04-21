@@ -1,0 +1,320 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Change background color */
+  }
+  
+  .chat-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    opacity: 55%;
+    border-radius: 10px; /* Increase border radius for softer edges */
+    background-color: #fff; /* Change background color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+  }
+  
+  .timestamp {
+    text-align: center;
+    margin-bottom: 20px;
+    opacity: 55%;
+    font-size: 120px; /* Change font size */
+    font-family: "Times New Roman", Times, serif; /* Change font family */
+    color: #fffbfb; /* Dark gray for timestamp */
+  }
+  
+  .mood {
+    text-align: center;
+    font-size: 80px; /* Change font size */
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif; /* Change font family */
+    margin: 0 auto; /* Center horizontally */
+  }
+  
+  .user-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-height: 50px;
+    font-size: 20px;
+    outline: none;
+  }
+  
+  .user-input:focus {
+    border-color: #4CAF50; /* Green border when focused */
+  }
+  button {
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 50px; /* Change font size */
+    font-family: "Times New Roman", Times, serif; /* Change font family */
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    display: block; /* Make button a block element for centering */
+    margin: 0 auto; /* Center horizontally */
+  }
+  
+  button:hover {
+    background-color: #45a049; /* Darker green */
+  }
+  .recommended-songs {
+    text-align: center;
+    font-size: 50px; /* Change font size */
+    font-family: "Times New Roman", Times, serif; /* Change font family */
+    font-weight: bold; /* Make text bold */
+    color: #fffbfb;
+    opacity: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-rows: repeat(3, auto); /* 3 rows */
+    gap: 20px; /* Gap between items */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center the grid horizontally */
+    align-items: center; /* Center the grid vertically */
+    position: absolute; /* Position the grid absolutely */
+    top: 50%; /* Position the top of the grid at the middle of the page */
+    left: 50%; /* Position the left side of the grid at the middle of the page */
+    transform: translate(-50%, -50%); /* Adjust the position to center the grid */
+  }
+ 
+  body {
+    /* Specify the background image */
+    background-image: url('nature.backdrop.png');
+    /* Set background size to cover the entire viewport */
+    background-size: cover;
+    /* Center the background image */
+    background-position: center;
+    /* Specify a background color as a fallback */
+    background-color: #f0f0f0; /* Fallback color */
+    /* Fix the background image in place */
+    background-attachment: fixed;
+  }
+  .recommended-songs ul {
+    list-style-type: none; /* Remove bullet points */
+    padding-left: 0; /* Remove default left padding */
+  }
+  .recommended-songs p {
+    font-size: 24px; /* Adjust font size */
+    font-weight: bold; /* Make the text bold */
+  }
+  .song {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure each song takes the full width of its column */
+    max-width: 150px; /* Limit the width to prevent stretching */
+  }
+  
+  .song img {
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+  }
+  
+  .song-info p {
+    margin: 0;
+    font-size: 16px; /* Adjust font size here */
+  }
+  .motivational-quote {
+    color: white;
+    opacity: 55%;
+    font-size: 30px;
+    font-family: "Times New Roman", Times, serif;
+    text-align: center
+  }
+  /* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.chatbot-toggler {
+  position: fixed;
+  bottom: 30px;
+  right: 35px;
+  outline: none;
+  border: none;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  opacity: 0%;
+  background: #724ae8;
+  transition: all 0.2s ease;
+}
+body.show-chatbot .chatbot-toggler {
+  transform: rotate(90deg);
+}
+.chatbot-toggler span {
+  color: #fff;
+  position: absolute;
+}
+.chatbot-toggler span:last-child,
+body.show-chatbot .chatbot-toggler span:first-child  {
+  opacity: 0;
+}
+body.show-chatbot .chatbot-toggler span:last-child {
+  opacity: 1;
+}
+.chatbot {
+  position: fixed;
+  right: 35px;
+  bottom: 90px;
+  width: 420px;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.5);
+  transform-origin: bottom right;
+  box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+              0 32px 64px -48px rgba(0,0,0,0.5);
+  transition: all 0.1s ease;
+}
+body.show-chatbot .chatbot {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+.chatbot header {
+  padding: 16px 0;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  background: #724ae8;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.chatbot header span {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  display: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+header h2 {
+  font-size: 1.4rem;
+}
+.chatbot .chatbox {
+  overflow-y: auto;
+  height: 510px;
+  padding: 30px 20px 100px;
+}
+.chatbot :where(.chatbox, textarea)::-webkit-scrollbar {
+  width: 6px;
+}
+.chatbot :where(.chatbox, textarea)::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 25px;
+}
+.chatbot :where(.chatbox, textarea)::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 25px;
+}
+.chatbox .chat {
+  display: flex;
+  list-style: none;
+}
+.chatbox .outgoing {
+  margin: 20px 0;
+  justify-content: flex-end;
+}
+.chatbox .incoming span {
+  width: 32px;
+  height: 32px;
+  color: #fff;
+  cursor: default;
+  text-align: center;
+  line-height: 32px;
+  align-self: flex-end;
+  background: #724ae8;
+  border-radius: 4px;
+  margin: 0 10px 7px 0;
+}
+.chatbox .chat p {
+  white-space: pre-wrap;
+  padding: 12px 16px;
+  border-radius: 10px 10px 0 10px;
+  max-width: 75%;
+  color: #fff;
+  font-size: 0.95rem;
+  background: #724ae8;
+}
+.chatbox .incoming p {
+  border-radius: 10px 10px 10px 0;
+}
+.chatbox .chat p.error {
+  color: #721c24;
+  background: #f8d7da;
+}
+.chatbox .incoming p {
+  color: #000;
+  background: #f2f2f2;
+}
+.chatbot .chat-input {
+  display: flex;
+  gap: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  padding: 3px 20px;
+  border-top: 1px solid #ddd;
+}
+.chat-input textarea {
+  height: 55px;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  max-height: 180px;
+  padding: 15px 15px 15px 0;
+  font-size: 0.95rem;
+}
+.chat-input span {
+  align-self: flex-end;
+  color: #724ae8;
+  cursor: pointer;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  visibility: hidden;
+  font-size: 1.35rem;
+}
+.chat-input textarea:valid ~ span {
+  visibility: visible;
+}
+
+@media (max-width: 490px) {
+  .chatbot-toggler {
+    right: 20px;
+    bottom: 20px;
+  }
+  .chatbot {
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    border-radius: 0;
+    width: 100%;
+  }
+  .chatbot .chatbox {
+    height: 90%;
+    padding: 25px 15px 100px;
+  }
+  .chatbot .chat-input {
+    padding: 5px 15px;
+  }
+  .chatbot header span {
+    display: block;
+  }
+}
